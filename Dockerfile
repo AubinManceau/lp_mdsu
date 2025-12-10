@@ -13,12 +13,10 @@ RUN npm install
 COPY . .
 
 # Construire l'application uniquement pour la production
-ARG NODE_ENV
-RUN if [ "$NODE_ENV" = "production" ]; then npm run build; fi
+RUN npm run build
 
-# Ports : 5173 pour dev, 4173 pour preview (prod)
-EXPOSE 5173
+# Ports : 4173 pour preview (prod)
 EXPOSE 4173
 
 # Commande par défaut : dev ou preview selon NODE_ENV
-CMD ["sh", "-c", "if [ \"$NODE_ENV\" = \"production\" ]; then npm run preview; else npm run dev; fi"]
+CMD ["sh", "-c", "npm run preview"]

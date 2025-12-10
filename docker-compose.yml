@@ -6,14 +6,12 @@ services:
     build:
       context: .
       args:
-        NODE_ENV: ${NODE_ENV}
+        NODE_ENV: production
     networks:
       - traefik_net
     environment:
-      NODE_ENV: ${NODE_ENV}
-    volumes: []
-    command: >
-      sh -c 'if [ "$NODE_ENV" = "production" ]; then npm run preview -- --port 4173; else npm run dev -- --port 5173; fi'
+      NODE_ENV: production
+    command: npm run preview -- --port 4173
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.lp_mdsu.rule=Host(`${WEB_DOMAIN}`)"
