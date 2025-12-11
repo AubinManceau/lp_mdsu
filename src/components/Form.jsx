@@ -2,13 +2,13 @@ import React from 'react';
 
 export default function Form() {
     return (
-        <section className="relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section id="pre-commande" className="relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
 
                 {/* Left Column: Text */}
                 <div className="lg:w-1/2 space-y-6">
                     <div>
-                        <p className="font-kindheart text-2xl sm:text-3xl text-gris-dark mb-2 transform -rotate-2">Sous-titres</p>
+                        <p className="font-kindheart text-[20px] text-gris-dark mb-2">Sous-titres</p>
                         <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-gris-dark">
                             Lorem <span className="text-rouge">ipsum</span>
                         </h2>
@@ -67,9 +67,9 @@ export default function Form() {
 
                             <button
                                 type="button"
-                                className="w-full bg-rouge hover:bg-opacity-90 transition-all text-white font-poppins font-bold text-lg py-3 rounded-[20px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                                className="w-full bg-rouge hover:bg-opacity-90 transition-all text-white font-poppins font-bold text-lg py-3 rounded-[20px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5 cursor-pointer"
                             >
-                                Bouton
+                                Envoyer
                             </button>
                         </form>
                     </div>

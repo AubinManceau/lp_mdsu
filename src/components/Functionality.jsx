@@ -1,22 +1,27 @@
 import React from 'react';
-import stepImg from '../assets/hero_family_playing_music_box_1765456709602.png';
+import stepImg1 from '../assets/etape-1.png';
+import stepImg2 from '../assets/etape-2.png';
+import stepImg3 from '../assets/etape-3.png';
 
 export default function Functionality() {
     const steps = [
         {
             number: 1,
             title: "Placer l'instrument",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at ligula commodo, sollicitudin diam ut, sagittis tortor."
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at ligula commodo, sollicitudin diam ut, sagittis tortor.",
+            img: stepImg1
         },
         {
             number: 2,
             title: "Placer l'instrument",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at ligula commodo, sollicitudin diam ut, sagittis tortor."
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at ligula commodo, sollicitudin diam ut, sagittis tortor.",
+            img: stepImg2
         },
         {
             number: 3,
             title: "Écouter la magie",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at ligula commodo, sollicitudin diam ut, sagittis tortor."
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at ligula commodo, sollicitudin diam ut, sagittis tortor.",
+            img: stepImg3
         }
     ];
 
@@ -25,7 +30,7 @@ export default function Functionality() {
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <p className="font-kindheart text-2xl sm:text-3xl text-white mb-2 transform -rotate-2">Sous-titres</p>
+                    <p className="font-kindheart text-[20px] text-white mb-2">Sous-titres</p>
                     <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-white mb-4">
                         Lorem <span className="text-white">ipsum</span>
                     </h2>
@@ -39,11 +44,11 @@ export default function Functionality() {
                     {steps.map((step, index) => (
                         <div key={index} className="bg-white rounded-[20px] overflow-hidden shadow-lg">
                             {/* Image */}
-                            <div className="relative h-48">
+                            <div className="relative h-[320px]">
                                 <img
-                                    src={stepImg}
+                                    src={step.img}
                                     alt={step.title}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover object-top"
                                 />
                                 {/* Step Badge */}
                                 <div className="absolute top-4 left-4 bg-jaune text-white font-poppins font-bold px-4 py-2 rounded-full text-sm">

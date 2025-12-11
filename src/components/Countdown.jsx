@@ -50,7 +50,7 @@ export default function CountdownTimer() {
     <section className="relative py-12 px-4 sm:px-6 lg:px-8 bg-rouge overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col xl:flex-row items-center justify-between">
         <div className="relative z-10 text-center xl:text-left mb-8 xl:mb-0">
-          <p className="font-kindheart text-[20px] sm:text-[22px] md:text-[24px] text-white mb-2">Envie</p>
+          <p className="font-kindheart text-[20px] text-white mb-2">Envie</p>
           <h2 className="text-white text-[32px] sm:text-[36px] md:text-[44px] font-poppins font-black leading-tight">
             Ouverture de la<br />
             pré-vente dans…

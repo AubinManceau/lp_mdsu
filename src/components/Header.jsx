@@ -39,9 +39,9 @@ export default function Header() {
 
                 {/* Right: Précommander Button - Desktop */}
                 <div className="hidden md:flex items-center">
-                    <button className="bg-rouge hover:bg-opacity-90 text-white font-poppins font-bold py-2 px-6 rounded-full shadow-md transition-transform transform hover:scale-105">
+                    <a href="#pre-commande" className="bg-rouge hover:bg-opacity-90 text-white font-poppins font-bold py-2 px-6 rounded-full shadow-md transition-transform transform hover:scale-105">
                         Pré-commander
-                    </button>
+                    </a>
                 </div>
 
                 {/* Burger Menu Button - Mobile */}
@@ -96,9 +96,13 @@ export default function Header() {
                     </nav>
 
                     {/* Mobile Précommander Button */}
-                    <button className="bg-rouge hover:bg-opacity-90 text-white font-poppins font-bold py-4 px-10 rounded-full shadow-md transition-all duration-200 transform hover:scale-105 w-full max-w-xs">
+                    <a
+                        href="#pre-commande"
+                        className="bg-rouge hover:bg-opacity-90 text-white font-poppins font-bold py-4 px-10 rounded-full shadow-md transition-all duration-200 transform hover:scale-105 w-full max-w-xs text-center"
+                        onClick={toggleMenu}
+                    >
                         Pré-commander
-                    </button>
+                    </a>
                 </div>
             </div>
         </header>

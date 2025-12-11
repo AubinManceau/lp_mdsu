@@ -1,8 +1,8 @@
 import React from 'react';
-import img1 from '../assets/gallery_children_playing_blocks_1765453278228.png';
-import img2 from '../assets/gallery_child_focused_blocks_1765453295238.png';
-import img3 from '../assets/gallery_child_tower_blocks_1765453321919.png';
-import img4 from '../assets/gallery_blocks_details_1765453337138.png';
+import img1 from '../assets/gallery.jpg';
+import img2 from '../assets/gallery.jpg';
+import img3 from '../assets/gallery.jpg';
+import img4 from '../assets/gallery.jpg';
 
 export default function Gallery() {
     return (
@@ -10,7 +10,7 @@ export default function Gallery() {
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <p className="font-kindheart text-2xl sm:text-3xl text-gris-dark mb-2 transform -rotate-2">Sous-titres</p>
+                    <p className="font-kindheart text-[20px] text-gris-dark mb-2">Sous-titres</p>
                     <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-gris-dark">
                         Lorem <span className="text-bleu">ipsum</span>
                     </h2>

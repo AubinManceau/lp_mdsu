@@ -1,5 +1,5 @@
 import React from 'react';
-import heroImg from '../assets/hero_family_playing_music_box_1765456709602.png';
+import heroImg from '../assets/hero.jpg';
 
 export default function Hero() {
     return (
@@ -8,7 +8,7 @@ export default function Hero() {
                 {/* Left Side (Beige) */}
                 <div className="w-full lg:w-[55%] bg-beige flex flex-col justify-center px-6 sm:px-12 lg:pl-32 lg:pr-12 pb-20 pt-20 lg:pt-0 relative order-2 lg:order-1">
                     {/* Top Left Decoration */}
-                    <div className="hidden lg:block absolute top-0 left-0 w-32 h-32 md:w-40 md:h-40 z-10 pointer-events-none">
+                    <div className="hidden lg:block absolute top-[-10px] left-0 w-32 h-32 md:w-40 md:h-40 z-10 pointer-events-none">
                         <svg xmlns="http://www.w3.org/2000/svg" width="141" height="140" viewBox="0 0 141 140" fill="none">
                             <path d="M114.32 93.8315C108.819 100.555 102.523 106.769 95.4845 112.376C60.3294 140.328 14.2491 146.848 -24.8052 129.419L-12.3268 101.527C16.2791 114.299 50.3075 109.285 76.4984 88.4663C102.731 67.5973 114.817 36.7059 108.8 5.86505L138.79 2.41675e-05C145.261 33.2142 136.007 67.3254 114.32 93.8315Z" fill="#F4ACBE" />
                         </svg>
@@ -26,9 +26,9 @@ export default function Hero() {
                             Luctus felis sit lectus tristique diam ornare bibendum. Arcu auctor suspendisse luctus amet bibendum pellentesque lorem. Malesuada lobortis tristique tortor,
                         </p>
 
-                        <button className="bg-rouge hover:bg-opacity-90 text-white font-poppins font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">
+                        <a href="#pre-commande" className="bg-rouge hover:bg-opacity-90 text-white font-poppins font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">
                             Bouton
-                        </button>
+                        </a>
                     </div>
                 </div>
 

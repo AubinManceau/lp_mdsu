@@ -8,7 +8,7 @@ export default function Newsletter() {
                     {/* Left Column: Text */}
                     <div className="lg:w-1/2 space-y-4">
                         <div>
-                            <p className="font-kindheart text-2xl sm:text-3xl text-gris-dark mb-2 transform -rotate-2">Sous-titres</p>
+                            <p className="font-kindheart text-[20px] text-gris-dark mb-2">Sous-titres</p>
                             <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-gris-dark">
                                 Lorem <span className="text-jaune">ipsum</span>
                             </h2>
@@ -29,13 +29,13 @@ export default function Newsletter() {
                                 />
                                 <button
                                     type="submit"
-                                    className="bg-rouge hover:bg-opacity-90 text-white font-poppins font-bold py-3 px-8 rounded-full shadow-md transition-transform transform hover:scale-105 whitespace-nowrap"
+                                    className="bg-rouge hover:bg-opacity-90 text-white font-poppins font-bold py-3 px-8 rounded-full shadow-md transition-transform transform hover:scale-105 whitespace-nowrap cursor-pointer"
                                 >
-                                    Bouton
+                                    S'inscrire
                                 </button>
                             </div>
                             <p className="text-xs text-gris-medium font-poppins text-center sm:text-left">
-                                By clicking sign up you're confirming that you agree with our Terms and Conditions.
+                                En vous inscrivant, vous acceptez notre politique de confidentialité.
                             </p>
                         </form>
                     </div>
