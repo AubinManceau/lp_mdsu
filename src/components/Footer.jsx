@@ -68,11 +68,11 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="border-t border-gris-light pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
                     <p className="text-gris-dark text-xs font-poppins">
-                        © 2023 ElevenAll. All Rights Reserved.
+                        © 2025 Melio. Tous droits réservés.
                     </p>
                     <div className="flex gap-6">
-                        <a href="#" className="text-gris-dark text-xs font-poppins hover:text-rouge transition-colors">Privacy Policy</a>
-                        <a href="#" className="text-gris-dark text-xs font-poppins hover:text-rouge transition-colors">Terms of Conditions</a>
+                        <a href="#" className="text-gris-dark text-xs font-poppins hover:text-rouge transition-colors">Politique de confidentialité</a>
+                        <a href="#" className="text-gris-dark text-xs font-poppins hover:text-rouge transition-colors">Conditions d'utilisation</a>
                     </div>
                 </div>
             </div>

@@ -124,12 +124,16 @@ export default function Boite3D() {
   };
 
   return (
-    <div className="w-full h-[300px]">
+    <div className="w-full h-[430px]">
       <Canvas camera={{ position: [0, 4, 5], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
         <InteractiveModel modelPath="models/boitemusique.glb" actions={meshActions} meshRefs={meshRefs} />
-        <OrbitControls target={[0, 1.2, 0]} />
+        <OrbitControls
+          target={[0, 1.2, 0]}
+          enableZoom={false}
+          enablePan={false}
+        />
       </Canvas>
     </div>
   );
