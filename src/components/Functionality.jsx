@@ -21,7 +21,7 @@ export default function Functionality() {
     ];
 
     return (
-        <section className="relative bg-bleu py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section className="relative bg-bleu pt-16 pb-24 lg:pb-48 px-4 sm:px-6 lg:px-8 overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-12">
@@ -61,48 +61,22 @@ export default function Functionality() {
                             </div>
                         </div>
                     ))}
+
+                    <div className="hidden lg:block absolute top-[-45px] right-[-95px] w-48 h-48 z-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="145" height="112" viewBox="0 0 145 112" fill="none">
+                            <path d="M81.6192 7.73189C88.3719 10.5486 94.9054 14.1296 101.128 18.4566C132.165 40.08 148.544 75.6902 143.903 111.409L118.386 108.069C121.79 81.9052 109.533 55.6568 86.4153 39.5457C63.2464 23.4134 35.4032 21.1136 11.9689 33.4101L0.000416765 10.6254C25.2405 -2.60954 54.9984 -3.37212 81.6192 7.73189Z" fill="#ED6B6A" />
+                        </svg>
+                    </div>
                 </div>
-            </div>
-
-            {/* Decorations */}
-            {/* White Concentric Circles (Bottom Left) */}
-            <div className="absolute bottom-8 left-8 w-32 h-32 z-0">
-                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
-                    <circle cx="50" cy="50" r="45" stroke="white" strokeWidth="2" strokeOpacity="0.3" />
-                    <circle cx="50" cy="50" r="38" stroke="white" strokeWidth="2" strokeOpacity="0.4" />
-                    <circle cx="50" cy="50" r="31" stroke="white" strokeWidth="2" strokeOpacity="0.5" />
-                    <circle cx="50" cy="50" r="24" stroke="white" strokeWidth="2" strokeOpacity="0.6" />
-                    <circle cx="50" cy="50" r="17" stroke="white" strokeWidth="2" strokeOpacity="0.7" />
-                    <circle cx="50" cy="50" r="10" stroke="white" strokeWidth="2" strokeOpacity="0.8" />
-                </svg>
-            </div>
-
-            {/* Blue Dot */}
-            <div className="absolute bottom-16 left-24 w-4 h-4 bg-[#9FA8DA] rounded-full z-0"></div>
-
-            {/* Red Arc (Top Right) */}
-            <div className="absolute top-0 right-0 w-48 h-48 z-0">
-                <svg viewBox="0 0 200 200" fill="none" className="w-full h-full">
-                    <path
-                        d="M 200 0 Q 100 100, 200 200"
-                        stroke="#ED6B6A"
-                        strokeWidth="40"
-                        strokeLinecap="round"
-                        fill="none"
-                        opacity="0.6"
-                    />
-                </svg>
             </div>
 
             {/* Bottom Wave */}
             <div className="absolute bottom-0 left-0 w-full z-0">
-                <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="w-full h-24">
-                    <path
-                        d="M0,60 C360,120 720,0 1080,60 C1260,90 1350,120 1440,120 L1440,120 L0,120 Z"
-                        fill="white"
-                    />
+                <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="w-full h-24 sm:h-32 lg:h-48 text-white fill-current">
+                    <path d="M0,224 C360,300 1080,100 1440,200 L1440,320 L0,320 Z" />
                 </svg>
             </div>
         </section>
     );
 }
+
