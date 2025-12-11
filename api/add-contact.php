@@ -52,13 +52,37 @@ if (empty($email) || empty($firstName) || empty($lastName)) {
     exit;
 }
 
+// Formater le numéro de téléphone au format international
+function formatPhoneNumber($phone) {
+    if (empty($phone)) {
+        return '';
+    }
+    
+    // Supprimer tous les espaces, tirets, points
+    $phone = preg_replace('/[\s\-\.\(\)]/', '', $phone);
+    
+    // Si le numéro commence par 0, remplacer par +33
+    if (substr($phone, 0, 1) === '0') {
+        $phone = '+33' . substr($phone, 1);
+    }
+    
+    // Si le numéro ne commence pas par +, ajouter +33
+    if (substr($phone, 0, 1) !== '+') {
+        $phone = '+33' . $phone;
+    }
+    
+    return $phone;
+}
+
+$formattedPhone = formatPhoneNumber($phone);
+
 // Préparer les données pour Brevo
 $brevoData = [
     'email' => $email,
     'attributes' => [
         'FIRSTNAME' => $firstName,
         'LASTNAME' => $lastName,
-        'SMS' => $phone
+        'SMS' => $formattedPhone
     ],
     'listIds' => [intval($BREVO_LIST_ID)],
     'updateEnabled' => true
