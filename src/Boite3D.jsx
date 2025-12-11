@@ -30,7 +30,7 @@ function InteractiveModel({ modelPath, actions }) {
   const handleClick = (e) => {
     e.stopPropagation();
     const mesh = e.object;
-    
+
     if (mesh && meshRefs.current[mesh.name] && actions[mesh.name]?.onClick) {
       actions[mesh.name].onClick(mesh);
     }
@@ -42,70 +42,70 @@ function InteractiveModel({ modelPath, actions }) {
 }
 
 export default function Boite3D() {
-  const musicRef = useRef(null);
-
-  useEffect(() => {
-    musicRef.current = new Howl({
-      src: ["/audio/musique.mp3"],
+    // PLACER .MP3 ICI
+    const musicList = [
+        "/audio/musique.mp3",
+        "/audio/toystory.mp3",
+    ];
+    const musicIndex = useRef(0);
+  const music = useRef(
+    new Howl({
+      src: [musicList[musicIndex.current]],
       loop: true,
       volume: 0.5,
-    });
+    })
+  );
 
-    return () => {
-      if (musicRef.current) {
-        musicRef.current.unload();
-      }
+    const playMusicAtIndex = (index) => {
+        music.current.stop();
+        musicIndex.current = index;
+        music.current = new Howl({
+            src: [musicList[musicIndex.current]],
+            loop: true,
+            volume: 0.5,
+        });
+        music.current.play();
     };
-  }, []);
 
-  const toggleMusic = () => {
-    if (!musicRef.current) return;
-    
-    if (musicRef.current.playing()) {
-      musicRef.current.pause();
-    } else {
-      musicRef.current.play();
-    }
-  };
+    useEffect(() => {
+        music.current.play();
+    }, []);
 
   const meshActions = {
-    Cube001: {
+    "Cube001": {
       onClick: (mesh) => {
-        console.log("Clic sur Droite:", mesh.name);
+        console.log("Droite", mesh.name);
+          const prevIndex =
+              (musicIndex.current - 1 + musicList.length) % musicList.length;
+          playMusicAtIndex(prevIndex);
       },
     },
-    Cube002: {
+    "Cube002": {
       onClick: (mesh) => {
-        console.log("Clic sur Gauche:", mesh.name);
+        console.log("Gauche", mesh.name);
+          const nextIndex = (musicIndex.current + 1) % musicList.length;
+          playMusicAtIndex(nextIndex);
       },
     },
-    Cylinder002: {
+    "Cylinder002": {
       onClick: (mesh) => {
-        console.log("Clic sur Volume:", mesh.name);
-        toggleMusic();
+        console.log("volume", mesh.name);
+          if (music.current.playing()) {
+              music.current.pause();
+          } else {
+              music.current.play();
+          }
       },
     },
   };
 
   return (
-    <div className="w-full h-[400px]">
-      <Canvas 
-        camera={{ position: [0, 1, 5], fov: 50 }}
-        gl={{ alpha: true, antialias: true }}
-      >
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[5, 5, 5]} intensity={1.2} />
-        <directionalLight position={[-5, 3, -5]} intensity={0.5} />
-        
-        <InteractiveModel 
-          modelPath="/models/boitemusique.glb" 
-          actions={meshActions} 
-        />
-        
-        <OrbitControls 
-          enableDamping
-          dampingFactor={0.05}
-        />
+    <div className="w-full h-[300px]">
+      <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[5, 5, 5]} intensity={1} />
+        <InteractiveModel modelPath="models/boitemusique.glb" actions={meshActions} />
+        <OrbitControls />
       </Canvas>
     </div>
   );
