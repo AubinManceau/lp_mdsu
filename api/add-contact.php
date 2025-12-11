@@ -103,6 +103,8 @@ $response = curl_exec($ch);
 $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
+$responseData = json_decode($response, true);
+
 if ($httpCode >= 200 && $httpCode < 300) {
     http_response_code(200);
     echo json_encode([
@@ -110,10 +112,19 @@ if ($httpCode >= 200 && $httpCode < 300) {
         'message' => 'Contact ajouté avec succès'
     ]);
 } else {
-    http_response_code($httpCode);
-    echo json_encode([
-        'error' => 'Erreur lors de l\'ajout du contact',
-        'details' => json_decode($response, true)
-    ]);
+    // Gérer le cas du doublon (email ou téléphone déjà existant)
+    if (isset($responseData['code']) && $responseData['code'] === 'duplicate_parameter') {
+        http_response_code(200);
+        echo json_encode([
+            'success' => true,
+            'message' => 'Vous êtes déjà inscrit sur la liste de précommande'
+        ]);
+    } else {
+        http_response_code($httpCode);
+        echo json_encode([
+            'error' => 'Erreur lors de l\'ajout du contact',
+            'details' => $responseData
+        ]);
+    }
 }
 ?>
