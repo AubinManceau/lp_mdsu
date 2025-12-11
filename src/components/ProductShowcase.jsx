@@ -3,13 +3,13 @@ import Boite3D from './Boite3D';
 
 export default function ProductShowcase() {
     return (
-        <section className="relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white">
+        <section className="relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
                 {/* Left Column: Text */}
                 <div className="w-full lg:w-1/2 order-2 lg:order-1 z-10">
                     <div className="mb-6">
-                        <p className="font-kindheart text-2xl sm:text-3xl text-gris-dark mb-2 transform -rotate-2">Sous-titres</p>
+                        <p className="font-kindheart text-[20px] text-gris-dark mb-2">Sous-titres</p>
                         <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-gris-dark">
                             Lorem <span className="text-rouge">ipsum</span>
                         </h2>
@@ -19,9 +19,9 @@ export default function ProductShowcase() {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at ligula commodo, sollicitudin diam ut, sagittis tortor. Nullam non ligula ut odio tincidunt volutpat. Nullam condimentum lorem at elit hendrerit feugiat. In porta, libero vehicula commodo eleifend, velit urna accumsan velit, nec vehicula quam magna at turpis. Curabitur vel lorem et magna lacinia laoreet et non eros. Donec quis eros vel tellus aliquam tincidunt quis vitae turpis. Praesent tincidunt ac arcu eu mattis. Sed nisl mauris, porta ut ipsum suscipit, vulputate molestie mauris.
                     </p>
 
-                    <button className="bg-rouge hover:bg-opacity-90 text-white font-poppins font-bold py-3 px-8 rounded-full shadow-md transition-transform transform hover:scale-105">
+                    <a href='#pre-commande' className="bg-rouge hover:bg-opacity-90 text-white font-poppins font-bold py-3 px-8 rounded-full shadow-md transition-transform transform hover:scale-105">
                         Pré-commander
-                    </button>
+                    </a>
                 </div>
 
                 {/* Right Column: Boite3D with decorations */}
@@ -32,17 +32,16 @@ export default function ProductShowcase() {
                             <Boite3D />
                         </div>
 
-                        {/* Price Badge (Yellow Circle) */}
-                        <div className="absolute top-0 left-0 w-24 h-24 sm:w-28 sm:h-28 bg-jaune rounded-full flex items-center justify-center z-20 shadow-lg">
-                            <span className="text-white font-poppins font-bold text-lg sm:text-xl">109,98€</span>
+                        {/* Price Badge (Yellow Blob Shape) */}
+                        <div className="absolute top-0 left-0 w-32 h-32 sm:w-36 sm:h-36 flex items-center justify-center z-20">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="159" height="152" viewBox="0 0 159 152" fill="none" className="absolute inset-0 w-full h-full">
+                                <path d="M159 76C159 84.2436 152.502 91.3605 150.074 98.7993C147.554 106.514 148.525 116.057 143.819 122.472C139.079 128.957 129.621 130.969 123.1 135.683C116.649 140.351 111.816 148.698 104.069 151.204C96.5886 153.619 87.7899 149.767 79.5 149.767C71.2101 149.767 62.4114 153.619 54.9308 151.204C47.1728 148.698 42.3514 140.351 35.8999 135.683C29.3789 130.969 19.9212 128.946 15.1808 122.472C10.4867 116.057 11.4463 106.514 8.92582 98.7993C6.49781 91.3605 0 84.2436 0 76C0 67.7564 6.49781 60.6395 8.92582 53.2007C11.4463 45.4859 10.4751 35.9431 15.1808 29.5275C19.9212 23.043 29.3789 21.0309 35.8999 16.317C42.3514 11.6491 47.1843 3.30195 54.9308 0.795516C62.4114 -1.61894 71.2101 2.23269 79.5 2.23269C87.7899 2.23269 96.5886 -1.61894 104.069 0.795516C111.827 3.30195 116.649 11.6491 123.1 16.317C129.621 21.0309 139.079 23.0545 143.819 29.5275C148.513 35.9431 147.554 45.4859 150.074 53.2007C152.502 60.6395 159 67.7564 159 76Z" fill="#F8B100" />
+                            </svg>
+                            <span className="relative text-white font-poppins font-bold text-lg sm:text-xl z-10">109,90€</span>
                         </div>
 
-                        {/* Background Blob Shape (Light Blue/Green) */}
-                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] z-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="519" height="387" viewBox="0 0 519 387" fill="none">
-                                <path d="M499.295 386.312C486.129 386.963 472.907 386.469 459.612 384.507C410.315 377.282 368.265 350.791 337.94 307.759C319.78 281.971 306.571 255.202 293.902 229.388C268.849 178.565 251.691 146.507 216.18 129.597C170.761 107.938 105.811 109.099 37.8807 132.917L0.000417207 24.8556C96.219 -8.79008 193.06 -8.2511 265.594 26.3119C338.803 61.2509 369.596 123.741 396.748 178.88C408.045 201.815 418.706 223.471 431.752 241.981C444.002 259.302 458.155 268.672 476.238 271.299C515.706 277.044 576.294 252.279 634.455 206.597L705.298 296.578C662.368 330.294 583.285 382.247 499.3 386.394L499.295 386.312Z" fill="#BDE0D7" />
-                            </svg>
-                        </div>
+                        {/* Background Circle (Light Blue/Green) */}
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] sm:w-[500px] sm:h-[500px] bg-[#BDE0D7] rounded-full z-0 opacity-80"></div>
                     </div>
                 </div>
 
