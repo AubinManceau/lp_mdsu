@@ -10,11 +10,27 @@ export default function Info() {
                 <div className="w-full lg:w-1/2 relative order-1 flex justify-center">
                     {/* Image Container */}
                     <div className="relative w-full max-w-[500px]">
-                        <img
-                            src={infoImg}
-                            alt="Family playing"
-                            className="w-full h-auto object-cover rounded-[30px]"
-                        />
+                        {/* Blob Clipped Image */}
+                        <svg viewBox="0 0 400 400" className="w-full h-auto">
+                            <defs>
+                                <clipPath id="blobClip" clipPathUnits="objectBoundingBox">
+                                    <path d="M0.78,0.15 
+                                           C0.9,0.27 1,0.45 0.95,0.62 
+                                           C0.9,0.79 0.74,0.92 0.56,0.97 
+                                           C0.38,1 0.19,0.93 0.08,0.78 
+                                           C-0.03,0.63 -0.02,0.41 0.07,0.24 
+                                           C0.17,0.07 0.36,-0.02 0.55,0.01 
+                                           C0.66,0.03 0.72,0.07 0.78,0.15 Z" />
+                                </clipPath>
+                            </defs>
+                            <image
+                                href={infoImg}
+                                width="400"
+                                height="400"
+                                clipPath="url(#blobClip)"
+                                preserveAspectRatio="xMidYMid slice"
+                            />
+                        </svg>
 
                         {/* Decorations */}
 
