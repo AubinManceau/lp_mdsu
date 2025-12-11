@@ -1,6 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Form() {
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: ''
+    });
+    const [status, setStatus] = useState({ type: '', message: '' });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setStatus({ type: '', message: '' });
+
+        try {
+            const response = await fetch('/api/add-contact.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setStatus({ type: 'success', message: 'Merci ! Votre inscription a été enregistrée avec succès.' });
+                setFormData({ firstName: '', lastName: '', email: '', phone: '' });
+            } else {
+                setStatus({ type: 'error', message: data.error || 'Une erreur est survenue. Veuillez réessayer.' });
+            }
+        } catch (error) {
+            setStatus({ type: 'error', message: 'Erreur de connexion. Veuillez réessayer.' });
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <section id="pre-commande" className="relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
@@ -23,23 +68,31 @@ export default function Form() {
                 {/* Right Column: Form */}
                 <div className="lg:w-1/2 w-full relative">
                     <div className="bg-white rounded-[30px] p-8 shadow-xl relative z-10 border border-gris-light/20">
-                        <form className="space-y-6">
+                        <form className="space-y-6" onSubmit={handleSubmit}>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="space-y-1">
-                                    <label htmlFor="nom" className="block text-sm font-poppins font-medium text-gris-medium">Nom</label>
+                                    <label htmlFor="lastName" className="block text-sm font-poppins font-medium text-gris-medium">Nom</label>
                                     <input
                                         type="text"
-                                        id="nom"
+                                        id="lastName"
+                                        name="lastName"
+                                        value={formData.lastName}
+                                        onChange={handleChange}
                                         placeholder="Dubois"
+                                        required
                                         className="w-full px-4 py-3 rounded-xl border border-gris-light focus:outline-none focus:border-rouge/50 text-gris-dark font-poppins"
                                     />
                                 </div>
                                 <div className="space-y-1">
-                                    <label htmlFor="prenom" className="block text-sm font-poppins font-medium text-gris-medium">Prénom</label>
+                                    <label htmlFor="firstName" className="block text-sm font-poppins font-medium text-gris-medium">Prénom</label>
                                     <input
                                         type="text"
-                                        id="prenom"
+                                        id="firstName"
+                                        name="firstName"
+                                        value={formData.firstName}
+                                        onChange={handleChange}
                                         placeholder="Marie"
+                                        required
                                         className="w-full px-4 py-3 rounded-xl border border-gris-light focus:outline-none focus:border-rouge/50 text-gris-dark font-poppins"
                                     />
                                 </div>
@@ -50,26 +103,40 @@ export default function Form() {
                                 <input
                                     type="email"
                                     id="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
                                     placeholder="marie.dubois@gmail.com"
+                                    required
                                     className="w-full px-4 py-3 rounded-xl border border-gris-light focus:outline-none focus:border-rouge/50 text-gris-dark font-poppins"
                                 />
                             </div>
 
                             <div className="space-y-1">
-                                <label htmlFor="tel" className="block text-sm font-poppins font-medium text-gris-medium">Téléphone</label>
+                                <label htmlFor="phone" className="block text-sm font-poppins font-medium text-gris-medium">Téléphone</label>
                                 <input
                                     type="tel"
-                                    id="tel"
+                                    id="phone"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleChange}
                                     placeholder="+33"
                                     className="w-full px-4 py-3 rounded-xl border border-gris-light focus:outline-none focus:border-rouge/50 text-gris-dark font-poppins"
                                 />
                             </div>
 
+                            {status.message && (
+                                <div className={`p-4 rounded-xl ${status.type === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'} font-poppins text-sm`}>
+                                    {status.message}
+                                </div>
+                            )}
+
                             <button
-                                type="button"
-                                className="w-full bg-rouge hover:bg-opacity-90 transition-all text-white font-poppins font-bold text-lg py-3 rounded-[20px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5 cursor-pointer"
+                                type="submit"
+                                disabled={isSubmitting}
+                                className="w-full bg-rouge hover:bg-opacity-90 transition-all text-white font-poppins font-bold text-lg py-3 rounded-[20px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                Envoyer
+                                {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
                             </button>
                         </form>
                     </div>
@@ -77,7 +144,7 @@ export default function Form() {
                     {/* Yellow Circles SVG */}
                     <div className="absolute -bottom-16 -right-16 w-32 h-32 z-20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="148" height="118" viewBox="0 0 148 118" fill="none">
-                            <g clip-path="url(#clip0_8066_925)">
+                            <g clipPath="url(#clip0_8066_925)">
                                 <path d="M56.4983 70.3795C51.603 70.3795 47.6162 66.3854 47.6162 61.4719C47.6162 56.5583 51.5955 52.5642 56.4983 52.5642C61.4011 52.5642 65.3729 56.5583 65.3729 61.4719C65.3729 66.3854 61.3936 70.3795 56.4983 70.3795ZM56.4983 56.7467C53.908 56.7467 51.7982 58.8644 51.7982 61.4643C51.7982 64.0643 53.908 66.1819 56.4983 66.1819C59.0886 66.1819 61.1984 64.0643 61.1984 61.4643C61.1984 58.8644 59.0886 56.7467 56.4983 56.7467Z" fill="#FDD179" />
                                 <path d="M56.4985 77.1922C47.8567 77.1922 40.8291 70.1384 40.8291 61.4644C40.8291 52.7903 47.8567 45.7366 56.4985 45.7366C65.1404 45.7366 72.168 52.7903 72.168 61.4644C72.168 70.1384 65.1404 77.1922 56.4985 77.1922ZM56.4985 49.9342C50.1617 49.9342 45.0111 55.1039 45.0111 61.4644C45.0111 67.8248 50.1617 72.9946 56.4985 72.9946C62.8354 72.9946 67.986 67.8248 67.986 61.4644C67.986 55.1039 62.8354 49.9342 56.4985 49.9342Z" fill="#FDD179" />
                                 <path d="M56.4011 83.9292C44.0202 83.9292 33.9443 73.8158 33.9443 61.3888C33.9443 48.9618 44.0202 38.8484 56.4011 38.8484C68.782 38.8484 78.8579 48.9618 78.8579 61.3888C78.8579 73.8158 68.782 83.9292 56.4011 83.9292ZM56.4011 43.0535C46.3252 43.0535 38.1264 51.2829 38.1264 61.3964C38.1264 71.5098 46.3252 79.7392 56.4011 79.7392C66.477 79.7392 74.6759 71.5098 74.6759 61.3964C74.6759 51.2829 66.477 43.0535 56.4011 43.0535Z" fill="#FDD179" />
@@ -98,6 +165,6 @@ export default function Form() {
 
                 </div>
             </div>
-        </section >
+        </section>
     );
 }

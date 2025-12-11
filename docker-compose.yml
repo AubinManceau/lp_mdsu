@@ -20,6 +20,31 @@ services:
       - "4173"
     restart: unless-stopped
 
+  api:
+    container_name: lp_mdsu_api
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    networks:
+      - traefik_net
+    environment:
+      - BREVO_API_KEY=${BREVO_API_KEY}
+      - BREVO_LIST_ID=${BREVO_LIST_ID}
+      - BREVO_NEWSLETTER_LIST_ID=${BREVO_NEWSLETTER_LIST_ID}
+    volumes:
+      - ./api:/var/www/html/api:ro
+      - ./.env:/var/www/html/.env:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.lp_mdsu_api.rule=Host(`${WEB_DOMAIN}`) && PathPrefix(`/api`)"
+      - "traefik.http.routers.lp_mdsu_api.entrypoints=websecure"
+      - "traefik.http.routers.lp_mdsu_api.tls.certresolver=resolver"
+      - "traefik.http.services.lp_mdsu_api.loadbalancer.server.port=80"
+      - "traefik.http.routers.lp_mdsu_api.priority=100"
+    expose:
+      - "80"
+    restart: unless-stopped
+
 networks:
   traefik_net:
     external: true
