@@ -1,5 +1,5 @@
 import React from 'react';
-import infoImg from '../assets/hero_family_playing_music_box_1765456709602.png';
+import infoImg from '../assets/info.png';
 
 export default function Info() {
     return (
@@ -10,32 +10,17 @@ export default function Info() {
                 <div className="w-full lg:w-1/2 relative order-1 flex justify-center">
                     {/* Image Container */}
                     <div className="relative w-full max-w-[500px]">
-                        {/* Blob Clipped Image */}
-                        <svg viewBox="0 0 400 400" className="w-full h-auto">
-                            <defs>
-                                <clipPath id="blobClip" clipPathUnits="objectBoundingBox">
-                                    <path d="M0.78,0.15 
-                                           C0.9,0.27 1,0.45 0.95,0.62 
-                                           C0.9,0.79 0.74,0.92 0.56,0.97 
-                                           C0.38,1 0.19,0.93 0.08,0.78 
-                                           C-0.03,0.63 -0.02,0.41 0.07,0.24 
-                                           C0.17,0.07 0.36,-0.02 0.55,0.01 
-                                           C0.66,0.03 0.72,0.07 0.78,0.15 Z" />
-                                </clipPath>
-                            </defs>
-                            <image
-                                href={infoImg}
-                                width="400"
-                                height="400"
-                                clipPath="url(#blobClip)"
-                                preserveAspectRatio="xMidYMid slice"
-                            />
-                        </svg>
+                        {/* Image without clip-path */}
+                        <img
+                            src={infoImg}
+                            alt="Family playing music"
+                            className="w-full h-auto"
+                        />
 
                         {/* Decorations */}
 
                         {/* Pink Wave (Top Right) */}
-                        <div className="absolute -top-8 -right-8 w-40 h-40 z-10">
+                        <div className="hidden lg:block absolute -top-10 right-18 w-40 h-40 z-10">
                             <svg xmlns="http://www.w3.org/2000/svg" width="255" height="158" viewBox="0 0 255 158" fill="none">
                                 <g clip-path="url(#clip0_8066_830)">
                                     <path d="M179.512 148.543C174.787 148.777 170.042 148.6 165.27 147.895C147.579 145.302 132.488 135.795 121.605 120.352C115.088 111.097 110.347 101.49 105.801 92.2263C96.8096 73.987 90.6518 62.4819 77.9077 56.4134C61.6078 48.6404 38.2986 49.0569 13.9198 57.6046L0.325384 18.8238C34.8563 6.74901 69.6105 6.94244 95.6415 19.3464C121.915 31.8853 132.966 54.3117 142.71 74.1001C146.764 82.3308 150.59 90.1029 155.272 96.7457C159.669 102.962 164.748 106.324 171.237 107.267C185.402 109.329 207.145 100.442 228.018 84.0472L253.442 116.339C238.036 128.439 209.654 147.084 179.514 148.573L179.512 148.543Z" fill="#F4ACBE" />
@@ -49,7 +34,7 @@ export default function Info() {
                         </div>
 
                         {/* Yellow Arc (Bottom Left) */}
-                        <div className="absolute -bottom-8 -left-8 w-32 h-32 z-10">
+                        <div className="hidden lg:block absolute -bottom-16 left-0 w-32 h-32 z-10">
                             <svg xmlns="http://www.w3.org/2000/svg" width="216" height="109" viewBox="0 0 216 109" fill="none">
                                 <g clip-path="url(#clip0_8066_828)">
                                     <path d="M118.967 103.013C110.03 102.473 101.039 100.961 92.1071 98.4627C47.5411 85.9522 14.2916 51.3822 5.29193 8.23411L36.1262 1.83283C42.713 33.4409 67.4335 58.8488 100.631 68.1728C133.895 77.5009 166.999 68.9625 189.139 45.3274L212.134 66.8479C188.285 92.2937 154.199 105.141 118.967 103.013Z" fill="#F8B100" />
