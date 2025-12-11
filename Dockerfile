@@ -1,22 +1,20 @@
-# Étape de base : Node
+# Build stage
+FROM node:20-alpine AS build
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# Production stage
 FROM node:20-alpine
 
 WORKDIR /app
+RUN npm install -g serve
 
-# Copier package.json et package-lock.json
-COPY package*.json ./
+COPY --from=build /app/dist ./dist
 
-# Installer les dépendances
-RUN npm install
-
-# Copier le reste de l'application
-COPY . .
-
-# Construire l'application uniquement pour la production
-RUN npm run build
-
-# Ports : 4173 pour preview (prod)
 EXPOSE 4173
 
-# Commande par défaut : dev ou preview selon NODE_ENV
-CMD ["sh", "-c", "npm run preview"]
+CMD ["serve", "-s", "dist", "-l", "4173"]
