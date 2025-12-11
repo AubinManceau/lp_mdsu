@@ -3,21 +3,22 @@ version: '3.8'
 name: lp_mdsu
 services:
   lp_mdsu:
+    container_name: lp_mdsu
     build:
       context: .
-      args:
-        NODE_ENV: production
     networks:
       - traefik_net
     environment:
       NODE_ENV: production
-    command: npm run preview -- --port 4173
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.lp_mdsu.rule=Host(`${WEB_DOMAIN}`)"
       - "traefik.http.routers.lp_mdsu.entrypoints=websecure"
       - "traefik.http.routers.lp_mdsu.tls.certresolver=resolver"
       - "traefik.http.services.lp_mdsu.loadbalancer.server.port=4173"
+    expose:
+      - "4173"
+    restart: unless-stopped
 
 networks:
   traefik_net:
