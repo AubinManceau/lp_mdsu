@@ -6,18 +6,11 @@ export default function Hero() {
         <section className="relative w-full overflow-hidden">
             <div className="flex flex-col lg:flex-row h-auto lg:h-[700px] overflow-hidden">
                 {/* Left Side (Beige) */}
-                <div className="w-full lg:w-[55%] bg-beige flex flex-col justify-center px-6 sm:px-12 lg:pl-32 lg:pr-12 pb-20 pt-0 relative order-2 lg:order-1">
+                <div className="w-full lg:w-[55%] bg-beige flex flex-col justify-center px-6 sm:px-12 lg:pl-32 lg:pr-12 pb-20 pt-20 lg:pt-0 relative order-2 lg:order-1">
                     {/* Top Left Decoration */}
-                    <div className="absolute top-[-50px] left-0 w-32 h-32 md:w-40 md:h-40 z-10 pointer-events-none">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="171" height="217" viewBox="0 0 171 217" fill="none">
-                            <g clip-path="url(#clip0_8044_841)">
-                                <path d="M114.32 127.183C108.819 133.907 102.523 140.121 95.4845 145.728C60.3294 173.68 14.2491 180.199 -24.8052 162.771L-12.3268 134.879C16.2791 147.651 50.3075 142.636 76.4984 121.818C102.731 100.949 114.817 70.0575 108.8 39.2167L138.79 33.3517C145.261 66.5658 136.007 100.677 114.32 127.183Z" fill="#BDE0D7" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_8044_841">
-                                    <rect width="203.759" height="93.1471" fill="white" transform="translate(-31 157.702) rotate(-50.7112)" />
-                                </clipPath>
-                            </defs>
+                    <div className="hidden lg:block absolute top-0 left-0 w-32 h-32 md:w-40 md:h-40 z-10 pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="141" height="140" viewBox="0 0 141 140" fill="none">
+                            <path d="M114.32 93.8315C108.819 100.555 102.523 106.769 95.4845 112.376C60.3294 140.328 14.2491 146.848 -24.8052 129.419L-12.3268 101.527C16.2791 114.299 50.3075 109.285 76.4984 88.4663C102.731 67.5973 114.817 36.7059 108.8 5.86505L138.79 2.41675e-05C145.261 33.2142 136.007 67.3254 114.32 93.8315Z" fill="#F4ACBE" />
                         </svg>
                     </div>
 
@@ -58,7 +51,7 @@ export default function Hero() {
 
             {/* Decorations */}
             {/* Yellow Circles - Positioned absolute near bottom center-right */}
-            <div className="absolute bottom-[-20px] lg:bottom-[40px] left-1/2 lg:left-[55%] transform -translate-x-1/2 z-30 pointer-events-none">
+            <div className="hidden lg:block absolute bottom-[-20px] lg:bottom-[40px] left-1/2 lg:left-[55%] transform -translate-x-1/2 z-30 pointer-events-none">
                 <svg xmlns="http://www.w3.org/2000/svg" width="176" height="140" viewBox="0 0 176 140" fill="none">
                     <g clip-path="url(#clip0_8044_826)">
                         <path d="M67.1875 83.5011C61.3661 83.5011 56.625 78.7623 56.625 72.9327C56.625 67.1031 61.3571 62.3643 67.1875 62.3643C73.0179 62.3643 77.7411 67.1031 77.7411 72.9327C77.7411 78.7623 73.0089 83.5011 67.1875 83.5011ZM67.1875 67.3266C64.1071 67.3266 61.5982 69.8391 61.5982 72.9237C61.5982 76.0084 64.1071 78.5209 67.1875 78.5209C70.2679 78.5209 72.7768 76.0084 72.7768 72.9237C72.7768 69.8391 70.2679 67.3266 67.1875 67.3266Z" fill="#BDE0D7" />
