@@ -8,7 +8,11 @@ function InteractiveModel({ modelPath, actions }) {
   const meshRefs = useRef({});
 
   useEffect(() => {
+    gltf.scene.scale.set(0.5, 0.5, 0.5);
     gltf.scene.traverse((child) => {
+      if (child.isMesh) {
+        console.log("Mesh loaded:", child.name);
+      }
       if (child.isMesh && actions[child.name]) {
         meshRefs.current[child.name] = child;
       }
@@ -38,18 +42,19 @@ export default function Boite3D() {
   );
 
   const meshActions = {
-    "Cube": {
+    "Cube001": {
       onClick: (mesh) => {
-        console.log("Pause de la musique !", mesh.name);
-        music.current.pause();
+        console.log("Droite", mesh.name);
       },
     },
-    "Cylindre": {
+    "Cube002": {
       onClick: (mesh) => {
-        if (!music.current.playing()) {
-          console.log("Reprise de la musique !", mesh.name);
-          music.current.play();
-        }
+        console.log("Gauche", mesh.name);
+      },
+    },
+    "Cylinder002": {
+      onClick: (mesh) => {
+        console.log("volume", mesh.name);
       },
     },
   };
@@ -59,7 +64,7 @@ export default function Boite3D() {
       <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
-        <InteractiveModel modelPath="models/test.glb" actions={meshActions} />
+        <InteractiveModel modelPath="models/boitemusique.glb" actions={meshActions} />
         <OrbitControls />
       </Canvas>
     </div>
