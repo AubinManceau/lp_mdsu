@@ -1,23 +1,32 @@
 import { useEffect, useRef, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, OrbitControls } from "@react-three/drei";
 import { Howl } from "howler";
 
-function InteractiveModel({ modelPath, actions }) {
+function InteractiveModel({ modelPath, actions, meshRefs }) {
   const group = useRef();
   const { scene } = useGLTF(modelPath);
-  const meshRefs = useRef({});
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     if (!scene) return;
 
     // Échelle et rotation pour corriger l'orientation
-    scene.scale.set(0.5, 0.5, 0.5);
+    scene.scale.set(1, 1, 1);
     scene.rotation.y = Math.PI;
 
     scene.traverse((child) => {
       if (child.isMesh) {
+        // Gretsch_G9500001 c'est la guitare, à renommer sur blender
+        if (child.name === "Alfaia_-_candomblé_drum_-_Wooden_Drum") {
+          meshRefs.current.drum = child;
+          child.visible = false;
+        }
+
+        if (child.name === "Gretsch_G9500001") {
+          meshRefs.current.guitar = child;
+          child.visible = false;
+        }
         if (actions[child.name]) {
           meshRefs.current[child.name] = child;
         }
@@ -27,10 +36,20 @@ function InteractiveModel({ modelPath, actions }) {
     setIsReady(true);
   }, [scene, actions]);
 
+  useFrame((state, delta) => {
+    if (!isReady) return;
+
+    const plateau = scene.getObjectByName("Cylinder001");// nom exact du plateau dans ton GLTF
+    if (plateau) {
+      const speed = 2 * Math.PI / 10; // 1 tour complet = 10 secondes
+      plateau.rotation.y += speed * delta;
+    }
+  });
+
   const handleClick = (e) => {
     e.stopPropagation();
     const mesh = e.object;
-    
+
     if (mesh && meshRefs.current[mesh.name] && actions[mesh.name]?.onClick) {
       actions[mesh.name].onClick(mesh);
     }
@@ -42,70 +61,75 @@ function InteractiveModel({ modelPath, actions }) {
 }
 
 export default function Boite3D() {
-  const musicRef = useRef(null);
+  const meshRefs = useRef({});
+  const showInstruments = () => {
+    const drum = meshRefs.current.drum;
+    const guitar = meshRefs.current.guitar;
 
-  useEffect(() => {
-    musicRef.current = new Howl({
-      src: ["/audio/musique.mp3"],
+    if (drum && !drum.visible) drum.visible = true;
+    if (guitar && !guitar.visible) guitar.visible = true;
+  };
+
+  // PLACER .MP3 ICI
+  const musicList = [
+    "/audio/toystoryfini.MP3",
+    "/audio/leroilion.MP3",
+  ];
+  const musicIndex = useRef(0);
+  const music = useRef(
+    new Howl({
+      src: [musicList[musicIndex.current]],
+      loop: true,
+      volume: 0.5,
+    })
+  );
+
+  const playMusicAtIndex = (index) => {
+    music.current.stop();
+    musicIndex.current = index;
+    music.current = new Howl({
+      src: [musicList[musicIndex.current]],
       loop: true,
       volume: 0.5,
     });
-
-    return () => {
-      if (musicRef.current) {
-        musicRef.current.unload();
-      }
-    };
-  }, []);
-
-  const toggleMusic = () => {
-    if (!musicRef.current) return;
-    
-    if (musicRef.current.playing()) {
-      musicRef.current.pause();
-    } else {
-      musicRef.current.play();
-    }
+    music.current.play();
   };
 
   const meshActions = {
-    Cube001: {
+    "Cube001": {
       onClick: (mesh) => {
-        console.log("Clic sur Droite:", mesh.name);
+        showInstruments();
+        const prevIndex =
+          (musicIndex.current - 1 + musicList.length) % musicList.length;
+        playMusicAtIndex(prevIndex);
       },
     },
-    Cube002: {
+    "Cube002": {
       onClick: (mesh) => {
-        console.log("Clic sur Gauche:", mesh.name);
+        showInstruments();
+        const nextIndex = (musicIndex.current + 1) % musicList.length;
+        playMusicAtIndex(nextIndex);
       },
     },
-    Cylinder002: {
+    "Cylinder002": {
       onClick: (mesh) => {
-        console.log("Clic sur Volume:", mesh.name);
-        toggleMusic();
+        showInstruments();
+        if (music.current.playing()) {
+          music.current.pause();
+        } else {
+          music.current.play();
+        }
       },
     },
   };
 
   return (
-    <div className="w-full h-[400px]">
-      <Canvas 
-        camera={{ position: [0, 1, 5], fov: 50 }}
-        gl={{ alpha: true, antialias: true }}
-      >
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[5, 5, 5]} intensity={1.2} />
-        <directionalLight position={[-5, 3, -5]} intensity={0.5} />
-        
-        <InteractiveModel 
-          modelPath="/models/boitemusique.glb" 
-          actions={meshActions} 
-        />
-        
-        <OrbitControls 
-          enableDamping
-          dampingFactor={0.05}
-        />
+    <div className="w-full h-[300px]">
+      <Canvas camera={{ position: [0, 4, 5], fov: 50 }}>
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[5, 5, 5]} intensity={1} />
+        <InteractiveModel modelPath="models/boitemusique.glb" actions={meshActions} meshRefs={meshRefs} />
+        <OrbitControls target={[0, 1.2, 0]} />
       </Canvas>
     </div>
   );
