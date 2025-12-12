@@ -1,5 +1,5 @@
 import React from 'react';
-import heroImg from '../assets/hero.jpg';
+import heroImg from '../assets/hero.png';
 
 export default function Hero() {
     return (
@@ -23,11 +23,11 @@ export default function Hero() {
                         </h1>
 
                         <p className="text-gris-dark/80 font-poppins text-sm sm:text-base mb-8 max-w-md leading-relaxed">
-                            Luctus felis sit lectus tristique diam ornare bibendum. Arcu auctor suspendisse luctus amet bibendum pellentesque lorem. Malesuada lobortis tristique tortor,
+                            Offrez à votre enfant une découverte ludique de la musique. Mélio transforme chaque note en une aventure captivante, favorisant l'éveil et l'apprentissage loin des écrans.
                         </p>
 
-                        <a href="#pre-commande" className="bg-rouge hover:bg-opacity-90 text-white font-poppins font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">
-                            Bouton
+                        <a href="#tarifs" className="bg-rouge hover:bg-opacity-90 text-white font-poppins font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">
+                            Découvrir Mélio
                         </a>
                     </div>
                 </div>

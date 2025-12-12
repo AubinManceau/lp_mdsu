@@ -31,10 +31,10 @@ export default function Header() {
 
                 {/* Navigation Links (Center) - Desktop */}
                 <nav className="hidden md:flex items-center gap-8 lg:gap-12 flex-1 justify-center">
-                    <a href="#" className="font-poppins font-bold text-gris-dark hover:text-rouge transition-colors text-sm lg:text-base">Link</a>
-                    <a href="#" className="font-poppins font-bold text-gris-dark hover:text-rouge transition-colors text-sm lg:text-base">Link</a>
-                    <a href="#" className="font-poppins font-bold text-gris-dark hover:text-rouge transition-colors text-sm lg:text-base">Link</a>
-                    <a href="#" className="font-poppins font-bold text-gris-dark hover:text-rouge transition-colors text-sm lg:text-base">Link</a>
+                    <a href="#melio" className="font-poppins font-bold text-gris-dark hover:text-rouge transition-colors text-sm lg:text-base">Mélio</a>
+                    <a href="#fonctionnalites" className="font-poppins font-bold text-gris-dark hover:text-rouge transition-colors text-sm lg:text-base">Fonctionnalités</a>
+                    <a href="#tarifs" className="font-poppins font-bold text-gris-dark hover:text-rouge transition-colors text-sm lg:text-base">Tarifs</a>
+                    <a href="#galerie" className="font-poppins font-bold text-gris-dark hover:text-rouge transition-colors text-sm lg:text-base">Galerie</a>
                 </nav>
 
                 {/* Right: Précommander Button - Desktop */}
@@ -66,32 +66,32 @@ export default function Header() {
                     {/* Mobile Navigation Links */}
                     <nav className="flex flex-col gap-8 mb-12 text-center w-full">
                         <a
-                            href="#"
+                            href="#melio"
                             className="font-poppins font-bold text-gris-dark hover:text-rouge transition-all duration-200 text-2xl py-2"
                             onClick={toggleMenu}
                         >
-                            Link
+                            Mélio
                         </a>
                         <a
-                            href="#"
+                            href="#fonctionnalites"
                             className="font-poppins font-bold text-gris-dark hover:text-rouge transition-all duration-200 text-2xl py-2"
                             onClick={toggleMenu}
                         >
-                            Link
+                            Fonctionnalités
                         </a>
                         <a
-                            href="#"
+                            href="#tarifs"
                             className="font-poppins font-bold text-gris-dark hover:text-rouge transition-all duration-200 text-2xl py-2"
                             onClick={toggleMenu}
                         >
-                            Link
+                            Tarifs
                         </a>
                         <a
-                            href="#"
+                            href="#galerie"
                             className="font-poppins font-bold text-gris-dark hover:text-rouge transition-all duration-200 text-2xl py-2"
                             onClick={toggleMenu}
                         >
-                            Link
+                            Galerie
                         </a>
                     </nav>
 

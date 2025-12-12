@@ -3,24 +3,24 @@ import Boite3D from './Boite3D';
 
 export default function ProductShowcase() {
     return (
-        <section className="relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section id="tarifs" className="relative py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
                 {/* Left Column: Text */}
                 <div className="w-full lg:w-1/2 order-2 lg:order-1 z-10">
                     <div className="mb-6">
-                        <p className="font-kindheart text-[20px] text-gris-dark mb-2">Sous-titres</p>
+                        <p className="font-kindheart text-[20px] text-gris-dark mb-2">Le coffret complet</p>
                         <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-gris-dark">
-                            Lorem <span className="text-rouge">ipsum</span>
+                            Tout pour <span className="text-rouge">l'éveil musical</span>
                         </h2>
                     </div>
 
                     <p className="text-gris-dark text-sm sm:text-base font-poppins leading-relaxed mb-8 max-w-[90%]">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at ligula commodo, sollicitudin diam ut, sagittis tortor. Nullam non ligula ut odio tincidunt volutpat. Nullam condimentum lorem at elit hendrerit feugiat. In porta, libero vehicula commodo eleifend, velit urna accumsan velit, nec vehicula quam magna at turpis. Curabitur vel lorem et magna lacinia laoreet et non eros. Donec quis eros vel tellus aliquam tincidunt quis vitae turpis. Praesent tincidunt ac arcu eu mattis. Sed nisl mauris, porta ut ipsum suscipit, vulputate molestie mauris.
+                        Le pack Mélio contient tout le nécessaire pour des heures de découverte : la base interactive, une collection d'instruments en bois adaptés aux petites mains, et un guide d'activités pour les parents.
                     </p>
 
                     <a href='#pre-commande' className="bg-rouge hover:bg-opacity-90 text-white font-poppins font-bold py-3 px-8 rounded-full shadow-md transition-transform transform hover:scale-105">
-                        Pré-commander
+                        Pré-commander maintenant
                     </a>
                 </div>
 
