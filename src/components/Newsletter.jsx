@@ -41,13 +41,13 @@ export default function Newsletter() {
                     {/* Left Column: Text */}
                     <div className="lg:w-1/2 space-y-4">
                         <div>
-                            <p className="font-kindheart text-[20px] text-gris-dark mb-2">Sous-titres</p>
+                            <p className="font-kindheart text-[20px] text-gris-dark mb-2">Restez connecté</p>
                             <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-gris-dark">
-                                Lorem <span className="text-jaune">ipsum</span>
+                                Ne manquez <span className="text-jaune">aucune nouveauté</span>
                             </h2>
                         </div>
                         <p className="text-gris-dark text-sm sm:text-base font-poppins leading-relaxed max-w-lg">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
+                            Inscrivez-vous pour recevoir nos conseils d'éveil musical, des idées d'activités et les dernières actualités de Mélio.
                         </p>
                     </div>
 
@@ -69,7 +69,7 @@ export default function Newsletter() {
                                     disabled={isSubmitting}
                                     className="bg-rouge hover:bg-opacity-90 text-white font-poppins font-bold py-3 px-8 rounded-full shadow-md transition-transform transform hover:scale-105 whitespace-nowrap cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
-                                    {isSubmitting ? 'Inscription...' : "S'inscrire"}
+                                    {isSubmitting ? 'Inscription...' : "Je m'inscris"}
                                 </button>
                             </div>
 

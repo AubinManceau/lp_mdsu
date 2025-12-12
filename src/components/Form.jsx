@@ -53,15 +53,13 @@ export default function Form() {
                 {/* Left Column: Text */}
                 <div className="lg:w-1/2 space-y-6">
                     <div>
-                        <p className="font-kindheart text-[20px] text-gris-dark mb-2">Sous-titres</p>
+                        <p className="font-kindheart text-[20px] text-gris-dark mb-2">Rejoignez l'aventure</p>
                         <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-gris-dark">
-                            Lorem <span className="text-rouge">ipsum</span>
+                            Pré-commandez <span className="text-rouge">votre Mélio</span>
                         </h2>
                     </div>
                     <p className="text-gris-dark font-poppins text-sm sm:text-base leading-relaxed">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at ligula commodo, sollicitudin diam ut, sagittis tortor. Nullam non ligula ut odio tincidunt volutpat.
-                        <br /><br />
-                        Nullam condimentum lorem at elit hendrerit feugiat. In porta, libero vehicula commodo eleifend, velit urna accumsan velit, nec vehicula quam magna at turpis. Curabitur vel lorem et magna lacinia laoreet et non eros. Donec quis eros vel tellus aliquam tincidunt quis vitae turpis. Praesent tincidunt ac arcu eu mattis. Sed nisl mauris, porta ut ipsum suscipit, vulputate molestie mauris.
+                        Soyez parmi les premiers à recevoir Mélio. En vous inscrivant maintenant, vous bénéficiez d'un tarif préférentiel et d'une livraison prioritaire.
                     </p>
                 </div>
 
@@ -136,7 +134,7 @@ export default function Form() {
                                 disabled={isSubmitting}
                                 className="w-full bg-rouge hover:bg-opacity-90 transition-all text-white font-poppins font-bold text-lg py-3 rounded-[20px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
+                                {isSubmitting ? 'Envoi en cours...' : 'Valider ma pré-commande'}
                             </button>
                         </form>
                     </div>
