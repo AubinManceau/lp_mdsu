@@ -3,7 +3,7 @@ import infoImg from '../assets/info.png';
 
 export default function Info() {
     return (
-        <section className="py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section id="melio" className="py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
                 {/* Left Column: Image with Decorations */}
@@ -52,20 +52,20 @@ export default function Info() {
                 {/* Right Column: Text */}
                 <div className="w-full lg:w-1/2 order-2">
                     <div className="mb-6">
-                        <p className="font-kindheart text-[20px] text-gris-dark mb-2">Sous-titres</p>
+                        <p className="font-kindheart text-[20px] text-gris-dark mb-2">Pourquoi choisir Mélio ?</p>
                         <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-gris-dark">
-                            Lorem <span className="text-rouge">ipsum</span>
+                            Un apprentissage <span className="text-rouge">ludique et sensoriel</span>
                         </h2>
                     </div>
 
                     <p className="text-gris-dark text-sm sm:text-base font-poppins leading-relaxed mb-6 max-w-[80%]">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at ligula commodo, sollicitudin diam ut, sagittis tortor. Nullam non ligula ut odio tincidunt volutpat. Nullam condimentum lorem at elit hendrerit feugiat. In porta, libero vehicula commodo eleifend, velit urna accumsan velit, nec vehicula quam magna at turpis.
+                        Conçu pour accompagner l'éveil musical de votre enfant, Mélio stimule l'imagination et la motricité fine grâce à une approche intuitive et amusante.
                         <br /><br />
-                        Curabitur vel lorem et magna lacinia laoreet et non eros. Donec quis eros vel tellus aliquam tincidunt quis vitae turpis. Praesent tincidunt ac arcu eu mattis. Sed nisl mauris, porta ut ipsum suscipit, vulputate molestie mauris.
+                        Fabriqué avec soin, ce jouet robuste offre une alternative saine aux écrans, permettant des heures de jeu créatif en toute autonomie.
                     </p>
 
-                    <a href="#pre-commande" className="bg-rouge hover:bg-opacity-90 text-white font-poppins font-bold py-3 px-8 rounded-full shadow-md transition-transform transform hover:scale-105">
-                        Bouton
+                    <a href="#fonctionnalites" className="bg-rouge hover:bg-opacity-90 text-white font-poppins font-bold py-3 px-8 rounded-full shadow-md transition-transform transform hover:scale-105">
+                        En savoir plus
                     </a>
                 </div>
 

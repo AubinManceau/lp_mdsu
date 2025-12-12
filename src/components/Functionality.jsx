@@ -7,35 +7,35 @@ export default function Functionality() {
     const steps = [
         {
             number: 1,
-            title: "Placer l'instrument",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at ligula commodo, sollicitudin diam ut, sagittis tortor.",
+            title: "Choisissez un instrument",
+            description: "Sélectionnez l'un des objets sonores inclus et placez-le sur la base.",
             img: stepImg1
         },
         {
             number: 2,
-            title: "Placer l'instrument",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at ligula commodo, sollicitudin diam ut, sagittis tortor.",
+            title: "Expérimentez",
+            description: "Laissez votre enfant explorer les sons en manipulant les objets.",
             img: stepImg2
         },
         {
             number: 3,
-            title: "Écouter la magie",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at ligula commodo, sollicitudin diam ut, sagittis tortor.",
+            title: "Écoutez la magie",
+            description: "Mélio transforme ces interactions en une belle harmonie musicale.",
             img: stepImg3
         }
     ];
 
     return (
-        <section className="relative bg-bleu pt-16 pb-24 lg:pb-48 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section id="fonctionnalites" className="relative bg-bleu pt-16 pb-24 lg:pb-48 px-4 sm:px-6 lg:px-8 overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <p className="font-kindheart text-[20px] text-white mb-2">Sous-titres</p>
+                    <p className="font-kindheart text-[20px] text-white mb-2">Comment ça marche ?</p>
                     <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-white mb-4">
-                        Lorem <span className="text-white">ipsum</span>
+                        La musique <span className="text-white">à portée de main</span>
                     </h2>
                     <p className="text-white text-sm sm:text-base font-poppins leading-relaxed max-w-3xl mx-auto">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at ligula commodo, sollicitudin diam ut, sagittis tortor. Nullam non ligula ut odio tincidunt volutpat. Nullam condimentum lorem at elit hendrerit feugiat.
+                        Mélio est conçu pour être intuitif. En trois étapes simples, votre enfant peut commencer à créer ses propres mélodies.
                     </p>
                 </div>
 

@@ -1,21 +1,24 @@
 import React from 'react';
-import img1 from '../assets/gallery.jpg';
-import img2 from '../assets/gallery.jpg';
-import img3 from '../assets/gallery.jpg';
-import img4 from '../assets/gallery.jpg';
+import img1 from '../assets/gallery-1.png';
+import img2 from '../assets/gallery-2.png';
+import img3 from '../assets/gallery-3.png';
+import img4 from '../assets/gallery-4.png';
+import img5 from '../assets/gallery-5.png';
+import img6 from '../assets/gallery-6.png';
+import img7 from '../assets/gallery-7.png';
 
 export default function Gallery() {
     return (
-        <section className="relative bg-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section id="galerie" className="relative bg-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <p className="font-kindheart text-[20px] text-gris-dark mb-2">Sous-titres</p>
+                    <p className="font-kindheart text-[20px] text-gris-dark mb-2">En images</p>
                     <h2 className="text-4xl sm:text-5xl font-poppins font-bold text-gris-dark">
-                        Lorem <span className="text-bleu">ipsum</span>
+                        Des moments de <span className="text-bleu">joie partagée</span>
                     </h2>
                     <p className="mt-4 max-w-3xl mx-auto text-sm sm:text-base text-gris-dark font-poppins leading-relaxed">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at ligula commodo, sollicitudin diam ut, sagittis tortor. Nullam non ligula ut odio tincidunt volutpat. Nullam condimentum lorem at elit hendrerit feugiat.
+                        Découvrez comment Mélio s'intègre harmonieusement dans le quotidien des familles et éveille la curiosité des enfants.
                     </p>
                 </div>
 
@@ -32,7 +35,7 @@ export default function Gallery() {
                         </div>
                         <div className="overflow-hidden rounded-[20px] h-[380px]">
                             <img
-                                src={img1}
+                                src={img2}
                                 alt="Children playing"
                                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                             />
@@ -43,21 +46,21 @@ export default function Gallery() {
                     <div className="flex flex-col gap-6">
                         <div className="overflow-hidden rounded-[20px] h-[215px]">
                             <img
-                                src={img2}
+                                src={img3}
                                 alt="Child focused"
                                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                         <div className="overflow-hidden rounded-[20px] h-[215px]">
                             <img
-                                src={img3}
+                                src={img4}
                                 alt="Building tower"
                                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                         <div className="overflow-hidden rounded-[20px] h-[380px]">
                             <img
-                                src={img4}
+                                src={img5}
                                 alt="Block details"
                                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                             />
@@ -68,14 +71,14 @@ export default function Gallery() {
                     <div className="flex flex-col gap-6">
                         <div className="overflow-hidden rounded-[20px] h-[380px]">
                             <img
-                                src={img1}
+                                src={img6}
                                 alt="Children playing"
                                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                         <div className="overflow-hidden rounded-[20px] h-[380px]">
                             <img
-                                src={img4}
+                                src={img7}
                                 alt="Block details"
                                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                             />

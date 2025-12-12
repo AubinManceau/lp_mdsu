@@ -11,7 +11,7 @@ export default function Footer() {
                     <div className="space-y-4">
                         <img src={logo} alt="Mélio" className="h-12" />
                         <p className="text-gris-dark text-sm font-poppins max-w-xs">
-                            Lorem ipsum dolor sit amet, elit ut aliquam, purus sit amet luctus
+                            Mélio, le jouet musical éducatif sans écran qui éveille la créativité des enfants.
                         </p>
                         {/* Social Icons */}
                         <div className="flex gap-4">
@@ -42,25 +42,24 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Middle Column: Solution Links */}
+                    {/* Middle Column: Navigation */}
                     <div>
-                        <h3 className="font-poppins font-bold text-gris-dark mb-4 uppercase text-sm">Solution</h3>
+                        <h3 className="font-poppins font-bold text-gris-dark mb-4 uppercase text-sm">Navigation</h3>
                         <ul className="space-y-2">
-                            <li><a href="#" className="text-gris-dark text-sm font-poppins hover:text-rouge transition-colors">Marketing</a></li>
-                            <li><a href="#" className="text-gris-dark text-sm font-poppins hover:text-rouge transition-colors">Analytics</a></li>
-                            <li><a href="#" className="text-gris-dark text-sm font-poppins hover:text-rouge transition-colors">Commerce</a></li>
-                            <li><a href="#" className="text-gris-dark text-sm font-poppins hover:text-rouge transition-colors">Insights</a></li>
+                            <li><a href="#" className="text-gris-dark text-sm font-poppins hover:text-rouge transition-colors">Accueil</a></li>
+                            <li><a href="#" className="text-gris-dark text-sm font-poppins hover:text-rouge transition-colors">Découvrir</a></li>
+                            <li><a href="#" className="text-gris-dark text-sm font-poppins hover:text-rouge transition-colors">Galerie</a></li>
+                            <li><a href="#" className="text-gris-dark text-sm font-poppins hover:text-rouge transition-colors">Contact</a></li>
                         </ul>
                     </div>
 
-                    {/* Right Column: Support Links */}
+                    {/* Right Column: Informations */}
                     <div>
-                        <h3 className="font-poppins font-bold text-gris-dark mb-4 uppercase text-sm">Support</h3>
+                        <h3 className="font-poppins font-bold text-gris-dark mb-4 uppercase text-sm">Informations</h3>
                         <ul className="space-y-2">
-                            <li><a href="#" className="text-gris-dark text-sm font-poppins hover:text-rouge transition-colors">Pricing</a></li>
-                            <li><a href="#" className="text-gris-dark text-sm font-poppins hover:text-rouge transition-colors">Documentation</a></li>
-                            <li><a href="#" className="text-gris-dark text-sm font-poppins hover:text-rouge transition-colors">Guides</a></li>
-                            <li><a href="#" className="text-gris-dark text-sm font-poppins hover:text-rouge transition-colors">API Status</a></li>
+                            <li><a href="#" className="text-gris-dark text-sm font-poppins hover:text-rouge transition-colors">FAQ</a></li>
+                            <li><a href="#" className="text-gris-dark text-sm font-poppins hover:text-rouge transition-colors">Blog</a></li>
+                            <li><a href="#" className="text-gris-dark text-sm font-poppins hover:text-rouge transition-colors">Presse</a></li>
                         </ul>
                     </div>
                 </div>
